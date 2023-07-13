@@ -16,8 +16,13 @@
       <h1>Potepan Share</h1>
 
       <% if user_signed_in? %>
-      <h2><%= current_user.name %></h2>
+      <p><%= current_user.name %></p>
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% end %>
+
+      <% unless user_signed_in? %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "新規登録", new_user_registration_path %>
       <% end %>
 
       </div>
