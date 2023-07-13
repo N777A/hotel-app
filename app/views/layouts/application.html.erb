@@ -14,9 +14,15 @@
     <header>
       <div>
       <h1>Potepan Share</h1>
-
       <% if user_signed_in? %>
       <p><%= current_user.name %></p>
+      <select name="color">
+        <option value="red">施設の新規登録</option>
+        <option value="blue">予約済み一覧</option>
+        <option value="black">登録済み一覧</option>
+        <option value="yellow">アカウント設定</option>
+        <option value="green">ログアウト</option>
+      </select>
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% end %>
 
@@ -28,8 +34,8 @@
       </div>
     </header>
     <%= yield %>
-  <footer>
-  <div></div>
-  </footer>
+    <footer>
+      <div></div>
+    </footer>
   </body>
 </html>
