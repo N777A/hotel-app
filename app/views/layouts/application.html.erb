@@ -15,7 +15,13 @@
       <div>
       <h1>Potepan Share</h1>
       <% if user_signed_in? %>
+      <!-- <% if current_user.image.attached? %>
+      <%= image_tag current_user.image %>
+      <% end %> -->
       <p><%= current_user.name %></p>
+      <%= link_to "#{current_user.name}", users_account_path %>
+      <%= link_to "profile", users_profile_path %>
+
       <select name="color">
         <option value="red">施設の新規登録</option>
         <option value="blue">予約済み一覧</option>
@@ -29,6 +35,7 @@
       <% unless user_signed_in? %>
       <%= link_to "ログイン", new_user_session_path %>
       <%= link_to "新規登録", new_user_registration_path %>
+      
       <% end %>
 
       </div>

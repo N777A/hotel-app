@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  get 'home/index'
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'users/account', to: 'users#show'
+  get 'users/profile', to:  'profiles#show'
+  root 'home#top'
+  get 'home/top'
+  
+
+  devise_for :users, controllers: {
+    registrations:  'users/registrations'
+  }
 end
