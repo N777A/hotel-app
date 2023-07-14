@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-
-  get 'users/account', to: 'users#show'
-  get 'users/profile', to:  'profiles#show'
   root 'home#top'
   get 'home/top'
+  get 'users/account', to: 'users#account'
+  get 'users/profile', to:  'users#profile'
+  get 'users/profile/edit', to: 'users#edit_profile'
+  
   
 
   devise_for :users, controllers: {

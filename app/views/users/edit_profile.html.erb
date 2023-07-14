@@ -1,0 +1,6 @@
+<h3>ユーザー編集</h3>
+
+<%= form_with model: @user, url: users_profile_edit_path do |f| %>
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name %>
+<% end %>
