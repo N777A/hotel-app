@@ -1,3 +1,6 @@
+<% if flash[:ok] %>
+    <p class="notice"><%= flash[:ok] %></p>
+<% end %>
 
 <h2>設定</h2>
 
@@ -5,7 +8,13 @@
 <%= link_to '編集', users_profile_edit_path %> 
 
 <h4>アイコン画像</h4>
+<% if current_user.image.attached? %>
+<%= image_tag @user.image, class: "rounded-circle", width: "100px"%>
+<% else %>
+<%= image_tag 'default-avatar.png' %>
+<% end %>
 <h4>ユーザー名</h4>
 <p><%= @user.name %></p>
 <h4>自己紹介</h4>
-<%= @user.intro %>
+<p><%= @user.intro %></p>
+
