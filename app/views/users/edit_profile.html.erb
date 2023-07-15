@@ -3,4 +3,7 @@
 <%= form_with model: @user, url: users_profile_edit_path do |f| %>
     <%= f.label :name, '名前' %>
     <%= f.text_field :name %>
+
+    <%= f.label :intro, '自己紹介' %>
+    <%= f.text_field :intro %>
 <% end %>

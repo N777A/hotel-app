@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -15,9 +15,9 @@
       <div>
       <h1>Potepan Share</h1>
       <% if user_signed_in? %>
-      <!-- <% if current_user.image.attached? %>
+      <% if current_user.image.attached? %>
       <%= image_tag current_user.image %>
-      <% end %> -->
+      <% end %>
       <p><%= current_user.name %></p>
       <%= link_to "#{current_user.name}", users_account_path %>
       <%= link_to "profile", users_profile_path %>
@@ -29,7 +29,7 @@
         <option value="yellow">アカウント設定</option>
         <option value="green">ログアウト</option>
       </select>
-      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger btn-sm" %>
       <% end %>
 
       <% unless user_signed_in? %>
