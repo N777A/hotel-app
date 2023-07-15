@@ -14,43 +14,29 @@
       <h1><%= link_to 'Potepan Share', home_top_path %></h1>
 
       <% if user_signed_in? %>
-      <% if current_user.image.attached? %>
-        <%= image_tag current_user.image, class: "rounded-circle", width: "50px" %>
-      <% else %>
-        <%= image_tag 'default-avatar.png', width: '50px'%>
-      <% end %>
-
-      <%= link_to "#{current_user.name}", users_account_path %>
-      
-
-      <%# <select name="color">
-        <option value="red">施設の新規登録</option>
-        <option value="blue">予約済み一覧</option>
-        <option value="black">登録済み一覧</option>
-        <option value="yellow">アカウント設定</option>
-        <option value="green">ログアウト</option>
-      </select> %>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">施設の新規登録</a></li>
-          <li><a class="dropdown-item" href="#">予約済み一覧</a></li>
-          <li><a class="dropdown-item" href="#">登録済み一覧</a></li>
-          <li><%= link_to "アカウント設定", users_account_path, class: 'dropdown-item' %></li>
-          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-        </ul>
-    </div>
-
-      
+        <% if current_user.image.attached? %>
+          <%= image_tag current_user.image, class: "rounded-circle", width: "50px" %>
+        <% else %>
+          <%= image_tag 'default-avatar.png', width: '50px'%>
+        <% end %>
+        <%= link_to "#{current_user.name}", users_account_path %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">施設の新規登録</a></li>
+            <li><a class="dropdown-item" href="#">予約済み一覧</a></li>
+            <li><a class="dropdown-item" href="#">登録済み一覧</a></li>
+            <li><%= link_to "アカウント設定", users_account_path, class: 'dropdown-item' %></li>
+            <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+          </ul>
+        </div>
       <% end %>
 
       <% unless user_signed_in? %>
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
-      
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
       <% end %>
-
       </nav>
     </header>
     <%= yield %>
