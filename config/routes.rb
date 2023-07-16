@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
   root 'home#top'
   get 'home/top'
   get 'users/account', to: 'users#account'
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations:  'users/registrations'
   }
+
+  resources :rooms, except: [:edit, :update, :destroy]
 end

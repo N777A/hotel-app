@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <input />
+        <input />
+        <button>検索</button>
+    </div>
+    <div>
+        <ul>
+            <% @rooms.each do |room| %>
+            <li><%= room.image %></li>
+            <li><%= room.name %></li>
+            <li><%= room.address %></li>
+            <li><%= room.intro %></li>
+            <li><%= room.fee %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
