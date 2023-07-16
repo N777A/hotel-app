@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-
   def edit_profile 
     @user = current_user
   end
@@ -23,11 +22,11 @@ class UsersController < ApplicationController
     end
   end
 
-private
+  private
 
-def user_params
-  params.require(:user).permit(:name, :intro, :image)
-end
+  def user_params
+    params.require(:user).permit(:name, :intro, :image)
+  end
 end
 
 
