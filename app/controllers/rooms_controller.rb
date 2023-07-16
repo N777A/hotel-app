@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   end
 
   def own
-
+    @rooms = Room.where(user_id: current_user.id)
   end
 
   def show

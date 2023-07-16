@@ -1,0 +1,13 @@
+<h1>own</h1>
+
+<% @rooms.each do |room| %>
+    <table>
+        <tr>
+            <th><%= room.name %></th>
+            <th><%= room.intro %></th>
+            <th><%= room.fee %></th>
+            <th><%= room.created_at %></th>
+            
+        </tr>
+    </table>
+<% end %>
