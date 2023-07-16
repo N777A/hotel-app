@@ -12,7 +12,9 @@
             <li><%= room.address %></li>
             <li><%= room.intro %></li>
             <li><%= room.fee %></li>
+            <%= link_to '詳細', room_path(room) %>
             <% end %>
+            
         </ul>
     </div>
 </div>

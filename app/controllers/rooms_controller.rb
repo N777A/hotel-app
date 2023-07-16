@@ -3,17 +3,16 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  def index_myrooms
+  def own
 
   end
 
   def show
-
+    @room = Room.find(params[:id])
   end
 
   def new
     @room = Room.new
-    @user = current_user
   end
 
   def create
@@ -22,7 +21,8 @@ class RoomsController < ApplicationController
       flash[:room_notice] = '施設の新規登録をしました'
       redirect_to new_room_url
     else
-      render home_top_path
+      flash.now[:room_alert] = '施設を登録できませんでした'
+      render :new
     end
   end
 
