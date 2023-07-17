@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: [:index, :top, :search]
   
   def index
     @rooms = Room.all
@@ -7,6 +7,10 @@ class RoomsController < ApplicationController
 
   def own
     @rooms = Room.where(user_id: current_user.id)
+  end
+
+  def top
+
   end
 
   def show
