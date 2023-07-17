@@ -1,4 +1,4 @@
-
+<div>
     <table>
         <tr>
             <th>施設名</th>
@@ -8,11 +8,18 @@
         </tr>
         <% @rooms.each do |room| %>
         <tr>
-            <td><%= room.name %></td>
+            <% if room.image.attached? %>
+            <td><%= image_tag room.image, width: "150px"%></td>
+            <% else %>
+            <td><%= image_tag 'default_room_image.png', width: '150px' %></td> 
+            <% end  %>
+            <!-- <td><%= room.name %></td> -->
+            <td><%= link_to room.name, room_path(room) %> </td>
             <td><%= room.intro %></td>
             <td><%= room.fee %></td>
             <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
         <% end %>
     </table>
+</div>
 

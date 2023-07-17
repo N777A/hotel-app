@@ -1,5 +1,17 @@
-<%= @room.name%>
-
-<%= @room.fee %>
-<%= @room.address %>
-<%= @room.intro %>
+<div>
+    <%=  link_to '戻る', :back %>
+    <ul>
+    <% if @room.image.attached? %>
+    <li><%= image_tag room.image, width: "500px"%></li>
+    <% else %>
+    <li><%= image_tag 'default_room_image.png', width: '500px' %></li>
+    <% end  %>
+    <li><%= @room.name%></li>
+    <li><%= @room.fee %></li>
+    <li><%= @room.address %></li>
+    <li><%= @room.intro %></li>
+    </ul> 
+    <% if flash[:room_notice] %>
+    <p class="notice"><%= flash[:room_notice] %></p>
+<% end %>
+</div>
