@@ -14,4 +14,23 @@
     <% if flash[:room_notice] %>
     <p class="notice"><%= flash[:room_notice] %></p>
 <% end %>
+
+<!-- 予約フォーム -->
+    <%= form_with model: @reservation, url: new_reservation_path, method: :get do |f| %>
+        <table>
+            <tr>
+                <th><%= f.label :checkin, "チェックイン" %></th>
+                <th><%= f.label :checkout, "チェックアウト" %></th>
+                <th><%= f.label :count_ppl, '人数' %></th>
+            </tr>
+            <tr>
+                <td><%= f.date_field :checkin %></td>
+                <td><%= f.date_field :checkout %></td>
+                <td><%= f.number_field :count_ppl%></td>
+            </tr>
+        </table>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <p><%= f.submit %></p>
+    <% end %>
 </div>

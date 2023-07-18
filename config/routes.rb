@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   patch 'users/profile/edit', to: 'users#update_profile'
   get 'rooms/own'
   get 'rooms/search', to: 'rooms#search'
-  get 'rooms/top', to:'rooms#top'
-
+  get 'rooms/top', to: 'rooms#top'
 
   devise_for :users, controllers: {
     registrations:  'users/registrations'
   }
-
   resources :rooms, except: [:edit, :update, :destroy]
+  resources :reservations, except: [:edit, :update, :destroy]
 end

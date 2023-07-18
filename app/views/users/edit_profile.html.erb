@@ -1,15 +1,22 @@
 <h3>ユーザー編集</h3>
 
 <%= form_with model: @user, url: users_profile_edit_path do |f| %>
-    <%= f.label :image, '画像' %>
-    <%= f.file_field :image %>
-
-    <%= f.label :name, '名前' %>
-    <%= f.text_field :name %>
-
-    <%= f.label :intro, '自己紹介' %>
-    <%= f.text_field :intro %>
-    <%= f.submit '登録する' %>
+    <table>
+        <tr>
+            <%= f.label :image, '画像' %>
+            <%= f.file_field :image %>
+        </tr>
+        <tr>
+            <%= f.label :name, '名前' %>
+            <%= f.text_field :name %>
+        </tr>
+      
+        <tr>
+            <%= f.label :intro, '自己紹介' %>
+            <%= f.text_field :intro %>
+        </tr>
+        <p><%= f.submit '登録する' %></p>
+    </table>
 <% end %>
 <%= link_to "キャンセル", users_profile_path %>
 <% if flash.now[:alert] %>
