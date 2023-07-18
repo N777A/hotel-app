@@ -33,6 +33,7 @@ class RoomsController < ApplicationController
   end
   def search
     @results = @q.result
+    @sum_rooms = @results.count
   end
 
   private

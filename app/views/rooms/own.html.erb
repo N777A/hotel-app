@@ -1,6 +1,7 @@
 <div>
     <table>
         <tr>
+            <th>施設画像</th>
             <th>施設名</th>
             <th>紹介文</th>
             <th>料金</th>
@@ -13,7 +14,6 @@
             <% else %>
             <td><%= image_tag 'default_room_image.png', width: '150px' %></td> 
             <% end  %>
-            <!-- <td><%= room.name %></td> -->
             <td><%= link_to room.name, room_path(room) %> </td>
             <td><%= room.intro %></td>
             <td><%= room.fee %></td>

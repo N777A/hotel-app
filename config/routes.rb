@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   root 'rooms#top'
   get 'home/top'
   get 'users/account', to: 'users#account'
