@@ -23,12 +23,12 @@
         </tr>
     </table>
     <p>上記で正しければ確定ボタンを押してください。</p>
-    <%= form_with model: @reservations do |f| %>
+    <%= form_with model: @reservation, url: {controller: 'reservations', action: 'create' } do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :checkin, value: @reservation.checkin %>
     <%= f.hidden_field :checkout, value: @reservation.checkout %>
     <%= f.hidden_field :payment, value: @total_fee %>
-    <%= f.hidden_field :room_id, value: @room_id %>
+    <%= f.hidden_field :room_id, value: @reservation.room_id %>
     <%= f.submit %>
     <% end %>
 

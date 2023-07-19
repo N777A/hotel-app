@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get 'rooms/own'
   get 'rooms/search', to: 'rooms#search'
   get 'rooms/top', to: 'rooms#top'
-
-  post 'reservations/confirm', to: 'reservations#confirm'
+  get 'reservations/confirm', to: 'reservations#confirm'
 
   devise_for :users, controllers: {
     registrations:  'users/registrations'
