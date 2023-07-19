@@ -1,0 +1,36 @@
+<div>
+    <h3>予約内容の確認</h3>
+    <table>
+        <tr>
+            <th>チェックイン</th>
+            <td><%= @reservation.checkin %></td>
+        </tr>
+        <tr>
+            <th>チェックアウト</th>
+            <td><%= @reservation.checkout %></td>
+        </tr>
+        <tr>
+            <th>日数</th>
+            <td><%= "#{@days}日" %></td>
+        </tr>
+        <tr>
+            <th>人数</th>
+            <td><%= "#{@reservation.count_ppl}人"%></td>
+        </tr>
+        <tr>
+            <th>お支払い金額</th>
+            <td><%= "¥#{@total_fee}" %></td>
+        </tr>
+    </table>
+    <p>上記で正しければ確定ボタンを押してください。</p>
+    <%= form_with model: @reservations do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :checkin, value: @reservation.checkin %>
+    <%= f.hidden_field :checkout, value: @reservation.checkout %>
+    <%= f.hidden_field :payment, value: @total_fee %>
+    <%= f.hidden_field :room_id, value: @room_id %>
+    <%= f.submit %>
+
+
+    <% end %>
+</div>

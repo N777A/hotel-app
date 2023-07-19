@@ -16,7 +16,7 @@
 <% end %>
 
 <!-- 予約フォーム -->
-    <%= form_with model: @reservation, url: new_reservation_path, method: :get do |f| %>
+    <%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |f| %>
         <table>
             <tr>
                 <th><%= f.label :checkin, "チェックイン" %></th>
