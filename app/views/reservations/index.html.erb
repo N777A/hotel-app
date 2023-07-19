@@ -1,5 +1,7 @@
 <% @reservations.each do |r| %>
+<%= r.payment %>
 <%= r.checkin %>
 <%= r.checkout %>
-<%= r.count_ppl %>
+<%= r.created_at %>
+<%= r.room.name %>
 <% end %>

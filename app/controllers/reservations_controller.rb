@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
+  
   def index
-    @reservations = Reservation.all
+@reservations = current_user.reservations.includes(:room)
   end
 
   def show
