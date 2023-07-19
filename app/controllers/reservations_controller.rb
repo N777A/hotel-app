@@ -36,7 +36,9 @@ class ReservationsController < ApplicationController
     @days = (@reservation.checkout - @reservation.checkin).to_i 
     @total_fee = @room.fee * @reservation.count_ppl * @days  
     else
-      redirect_to room_path(@reservation.room_id)
+      @reservation.errors
+      flash.now[:reservation_error] = @reservation.errors.full_messages.join(" ")
+      render "rooms/show"
     end
 
 

@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
   }
   resources :rooms, except: [:edit, :update, :destroy]
-  resources :reservations, except: [:edit, :update, :destroy]
+  resources :reservations, except: [:new, :edit, :update, :destroy]
 end

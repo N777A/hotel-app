@@ -33,4 +33,7 @@
         <%= f.hidden_field :room_id, value: @room.id %>
         <p><%= f.submit %></p>
     <% end %>
+    <% if flash.now[:reservation_error] %>
+    <p class="notice"><%= flash.now[:reservation_error] %></p>
+    <% end %>
 </div>
