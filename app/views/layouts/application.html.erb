@@ -22,10 +22,10 @@
             <%= image_tag 'default-avatar.png', width: '50px'%>
           <% end %>
           
-          <%= link_to "#{current_user.name}", users_account_path, class: 'nav-name-link' %>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            </button>
+            <a class="nav-name-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.name %>
+            </a>
             <div class="menu-container">
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><%= link_to "施設の新規登録", new_room_path, class:'dropdown-item' %></li>

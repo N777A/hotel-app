@@ -15,7 +15,6 @@ class Reservation < ApplicationRecord
         if checkin && checkin < Date.today
             errors.add(:checkin, 'チェックインは今日以降の日付を入力してください')
         end
-      
         if checkout && checkout < Date.today
             errors.add(:checkout, 'チェックアウトは今日以降の日付を入力してください')
         end
