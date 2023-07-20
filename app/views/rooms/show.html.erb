@@ -2,7 +2,7 @@
     <%=  link_to '戻る', :back %>
     <ul>
     <% if @room.image.attached? %>
-    <li><%= image_tag room.image, width: "500px"%></li>
+    <li><%= image_tag @room.image, width: "500px"%></li>
     <% else %>
     <li><%= image_tag 'default_room_image.png', width: '500px' %></li>
     <% end  %>
@@ -11,9 +11,10 @@
     <li><%= @room.address %></li>
     <li><%= @room.intro %></li>
     </ul> 
+
     <% if flash[:room_notice] %>
     <p class="notice"><%= flash[:room_notice] %></p>
-<% end %>
+    <% end %>
 
 <!-- 予約フォーム -->
     <%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |f| %>
@@ -33,6 +34,7 @@
         <%= f.hidden_field :room_id, value: @room.id %>
         <p><%= f.submit %></p>
     <% end %>
+    
     <% if flash.now[:reservation_error] %>
     <p class="notice"><%= flash.now[:reservation_error] %></p>
     <% end %>

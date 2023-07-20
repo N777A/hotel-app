@@ -22,12 +22,13 @@
             <%= f.file_field :image %>
         </tr>  
     </table>
-   <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <p><%= f.submit "投稿を完了する" %></p>
-<% end %>
-<% if flash[:room_alert] %>
-    <p class="notice"><%= flash[:room_alert] %></p>
-<% end %>
+    <% end %>
+    
+    <% if flash[:room_alert] %>
+        <p class="notice"><%= flash[:room_alert] %></p>
+    <% end %>
 
 
  

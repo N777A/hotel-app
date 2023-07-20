@@ -1,11 +1,3 @@
-<!-- <% @reservations.each do |r| %>
-<%= r.payment %>
-<%= r.checkin %>
-<%= r.checkout %>
-<%= r.created_at %>
-<%= r.room.name %>
-<% end %> -->
-
 <div>
     <h3>予約済み一覧</h3>
     <table>
@@ -19,7 +11,7 @@
             <th>予約確定日時</th>
         </tr>
 
-            <% @reservations.each do |r| %>
+        <% @reservations.each do |r| %>
             <tr>
                 <% if r.room.image.attached? %>
                     <td><%= image_tag r.room.image, width: "200px"%></td>
