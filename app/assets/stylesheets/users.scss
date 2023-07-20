@@ -1,3 +1,32 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.account-container {
+    margin: 30px;
+    border: 1px solid #038ffa;
+    width: 200px;
+    height:250px;
+    text-align: center;
+    padding-top: 30px;
+    border-radius: 10px;
+}
+.acount-profile-button-container {
+    margin: 10px;
+}
+
+// profile
+
+.profile-container {
+    margin: 30px;
+    border: 1px solid #038ffa;
+    width: 300px;
+    height:450px;
+    text-align: center;
+    padding-top: 30px;
+    border-radius: 10px;
+
+}
+.profile-button-container {
+    padding-top: 48%
+}

@@ -63,6 +63,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # 編集後の遷移先
   protected 
     def after_update_path_for(resource)
-      home_top_path
+      rooms_top_path
     end
 end

@@ -29,7 +29,7 @@
     <%= f.hidden_field :checkout, value: @reservation.checkout %>
     <%= f.hidden_field :payment, value: @total_fee %>
     <%= f.hidden_field :room_id, value: @reservation.room_id %>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
     <% end %>
     <%= link_to "キャンセル", room_path(@room.id) %>
 </div>

@@ -5,46 +5,45 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
   <body>
     <header>
       <nav class="nav-bar">
-      <h1><%= link_to 'Potepan Share', rooms_top_path %></h1>
-      
-      <div>
-        <% if user_signed_in? %>
-        <% if current_user.image.attached? %>
-          <%= image_tag current_user.image, class: "rounded-circle", width: "50px" %>
-        <% else %>
-          <%= image_tag 'default-avatar.png', width: '50px'%>
-        <% end %>
-        
-        <%= link_to "#{current_user.name}", users_account_path %>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><%= link_to "施設の新規登録", new_room_path, class:'dropdown-item' %></li>
-            <li><%= link_to "予約済み一覧", reservations_index_path, class: 'dropdown-item' %></li>
-            <li><%= link_to '登録済み施設一覧', rooms_own_path, class: "dropdown-item" %></li>
-            <li><%= link_to "アカウント設定", users_account_path, class: 'dropdown-item' %></li>
-            <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-          </ul>
+        <h1><%= link_to 'Potepan Share', rooms_top_path %></h1>
+        <div class="nav-user">
+          <% if user_signed_in? %>
+          <% if current_user.image.attached? %>
+            <%= image_tag current_user.image, class: "rounded-circle", width: "50px" %>
+          <% else %>
+            <%= image_tag 'default-avatar.png', width: '50px'%>
+          <% end %>
+          
+          <%= link_to "#{current_user.name}", users_account_path, class: 'nav-name-link' %>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <div class="menu-container">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to "施設の新規登録", new_room_path, class:'dropdown-item' %></li>
+                <li><%= link_to "予約済み一覧", reservations_index_path, class: 'dropdown-item' %></li>
+                <li><%= link_to '登録済み施設一覧', rooms_own_path, class: "dropdown-item" %></li>
+                <li><%= link_to "アカウント設定", users_account_path, class: 'dropdown-item' %></li>
+                <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+          <% unless user_signed_in? %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
+          <% end %>
         </div>
-        <% end %>
-        <% unless user_signed_in? %>
-          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
-        <% end %>
-      </div>
-      
       </nav>
     </header>
     <%= yield %>
-    <footer>
-      <div></div>
-    </footer>
   </body>
 </html>

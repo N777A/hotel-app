@@ -1,38 +1,41 @@
-<div>
-    <%=  link_to '戻る', :back %>
-    <ul>
-    <li><%= render partial: 'shared/image_common', locals: {obj: @room, width: '500px'} %></li>
-        <%= render partial: "shared/room_common", locals: { obj: @room} %>
-    </ul> 
-
-    <% if flash[:room_notice] %>
-    <p class="notice"><%= flash[:room_notice] %></p>
-    <% end %>
-
-<!-- 予約フォーム -->
-<% if user_signed_in? %>
-    <%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |f| %>
-        <table>
-            <tr>
-                <th><%= f.label :checkin, "チェックイン" %></th>
-                <th><%= f.label :checkout, "チェックアウト" %></th>
-                <th><%= f.label :count_ppl, '人数' %></th>
-            </tr>
-            <tr>
-                <td><%= f.date_field :checkin %></td>
-                <td><%= f.date_field :checkout %></td>
-                <td><%= f.number_field :count_ppl%></td>
-            </tr>
-        </table>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-        <p><%= f.submit %></p>
-    <% end %>
+<div class="room-show-container">
+    <%=  link_to '戻る', :back, class: "btn btn-outline-primary"%>
+    <div class="room-show-contents-container">
+        <ul class="room-show-ul">
+            <li><%= render partial: 'shared/image_common', locals: {obj: @room, width: '500px'} %></li>
+                <%= render partial: "shared/room_common", locals: { obj: @room} %>
+            </ul> 
+        
+            <% if flash[:room_notice] %>
+            <p class="notice"><%= flash[:room_notice] %></p>
+            <% end %>
+        
+        <!-- 予約フォーム -->
+        <% if user_signed_in? %>
+            <%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |f| %>
+                <table>
+                    <tr>
+                        <th><%= f.label :checkin, "チェックイン" %></th>
+                        <th><%= f.label :checkout, "チェックアウト" %></th>
+                        <th><%= f.label :count_ppl, '人数' %></th>
+                    </tr>
+                    <tr>
+                        <td><%= f.date_field :checkin %></td>
+                        <td><%= f.date_field :checkout %></td>
+                        <td><%= f.number_field :count_ppl%></td>
+                    </tr>
+                </table>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :room_id, value: @room.id %>
+                <p><%= f.submit class: "btn btn-primary" %></p>
+            <% end %>
+            
+            <% if flash.now[:reservation_error] %>
+            <p class="notice"><%= flash.now[:reservation_error] %></p>
+            <% end %>
+        <% else %>
+            <p>〜ログインしてホテルを予約しましょう！〜</p>
+        <% end %>
+    </div>
     
-    <% if flash.now[:reservation_error] %>
-    <p class="notice"><%= flash.now[:reservation_error] %></p>
-    <% end %>
-<% else %>
-    <p>〜ログインしてホテルを予約しましょう！〜</p>
-<% end %>
 </div>
