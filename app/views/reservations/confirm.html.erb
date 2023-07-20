@@ -31,7 +31,6 @@
     <%= f.hidden_field :room_id, value: @reservation.room_id %>
     <%= f.submit %>
     <% end %>
-
-   
+    <%= link_to "キャンセル", room_path(@room.id) %>
 </div>
 

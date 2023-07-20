@@ -23,10 +23,9 @@ class ReservationsController < ApplicationController
     @room = Room.find(@room_id)
 
     if @reservation.validate(:before_confirm)
-    @days = (@reservation.checkout - @reservation.checkin).to_i 
-    @total_fee = @room.fee * @reservation.count_ppl * @days  
+      @days = (@reservation.checkout - @reservation.checkin).to_i 
+      @total_fee = @room.fee * @reservation.count_ppl * @days  
     else
-      @reservation.errors
       flash.now[:reservation_error] = @reservation.errors.full_messages.join(" ")
       render "rooms/show"
     end

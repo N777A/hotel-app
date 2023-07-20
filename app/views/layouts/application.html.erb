@@ -25,14 +25,13 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><%= link_to "施設の新規登録", new_room_path, class:'dropdown-item' %></li>
-            <li><a class="dropdown-item" href="#">予約済み一覧</a></li>
+            <li><%= link_to "予約済み一覧", reservations_index_path, class: 'dropdown-item' %></li>
             <li><%= link_to '登録済み施設一覧', rooms_own_path, class: "dropdown-item" %></li>
             <li><%= link_to "アカウント設定", users_account_path, class: 'dropdown-item' %></li>
             <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>
         </div>
       <% end %>
-
       <% unless user_signed_in? %>
         <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
         <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
