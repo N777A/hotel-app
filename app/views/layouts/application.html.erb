@@ -10,15 +10,17 @@
   </head>
   <body>
     <header>
-      <nav >
+      <nav class="nav-bar">
       <h1><%= link_to 'Potepan Share', rooms_top_path %></h1>
-
-      <% if user_signed_in? %>
+      
+      <div>
+        <% if user_signed_in? %>
         <% if current_user.image.attached? %>
           <%= image_tag current_user.image, class: "rounded-circle", width: "50px" %>
         <% else %>
           <%= image_tag 'default-avatar.png', width: '50px'%>
         <% end %>
+        
         <%= link_to "#{current_user.name}", users_account_path %>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,11 +33,13 @@
             <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>
         </div>
-      <% end %>
-      <% unless user_signed_in? %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
-      <% end %>
+        <% end %>
+        <% unless user_signed_in? %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+      
       </nav>
     </header>
     <%= yield %>

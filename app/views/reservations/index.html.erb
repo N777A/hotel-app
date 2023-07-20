@@ -13,14 +13,8 @@
 
         <% @reservations.each do |r| %>
             <tr>
-                <% if r.room.image.attached? %>
-                    <td><%= image_tag r.room.image, width: "200px"%></td>
-                <% else %>
-                    <td><%= image_tag 'default_room_image.png', width: '200px' %></td> 
-                <% end  %>
-                <td><%= r.room.name %></td>
-                <td><%= r.room.intro %></td>
-                <td><%= "¥#{r.payment}" %></td>
+                <td><%= render partial: "shared/image_common", locals: {obj: r.room, width: '150px'} %></td>
+                <%= render partial: "shared/room_index_common", locals: { obj: r.room, payment: r.payment} %>
                 <td><%= r.checkin %></td>
                 <td><%= r.checkout %></td>
                 <td><%= r.created_at.strftime("%Y/%m/%d %H:%M") %></td>

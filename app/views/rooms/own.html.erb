@@ -9,14 +9,8 @@
         </tr>
         <% @rooms.each do |room| %>
         <tr>
-            <% if room.image.attached? %>
-            <td><%= image_tag room.image, width: "150px"%></td>
-            <% else %>
-            <td><%= image_tag 'default_room_image.png', width: '150px' %></td> 
-            <% end  %>
-            <td><%= link_to room.name, room_path(room) %> </td>
-            <td><%= room.intro %></td>
-            <td><%= room.fee %></td>
+            <td><%= render partial: 'shared/image_common', locals: { obj: room, width: '150px'} %></td>
+            <%= render partial: 'shared/room_index_common', locals: { obj: room, payment: room.fee} %>
             <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
         <% end %>
