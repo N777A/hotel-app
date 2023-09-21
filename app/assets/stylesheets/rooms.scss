@@ -1,0 +1,106 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// nav
+
+.nav-bar {
+   background-color: #d8eefe; 
+   display: flex;
+   justify-content: space-between;
+}
+.nav-user {
+    display: flex;
+    gap: 10px;
+}
+.nav-name-link {
+    padding-top: 12px;
+}
+.menu-container {
+    width: 70px;
+    
+}
+
+// room-top
+.room-top-container {
+    background-color: #d8eefe;
+}
+.search-photo-container {
+    position: relative;
+    align-items: center;
+    text-align: center;
+}
+.top-photo-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vh\w;
+    align-items: center;
+    opacity: 0.4;
+}
+
+.top-search-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 300px;
+    align-items: center;
+    gap: 10px;
+}
+.top-p {
+    color: #094067;
+    font-size: 30px;
+    font-weight: bold;
+}
+.top-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+.top-area-h2 {
+    color: #094067;
+    font-weight: bold;
+}
+// search
+
+.search-page-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+
+.rooms-index-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.rooms-index-ul {
+    background-color: #d8eefe;
+    width: 600px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px;
+    list-style-type: none;
+}
+
+// show
+.room-show-contents-container {
+    background-color: #d8eefe;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-top: 20px;
+    margin: 20px;
+}
+
+.room-show-ul {
+    list-style-type: none;
+}

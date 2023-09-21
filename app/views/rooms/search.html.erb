@@ -1,0 +1,23 @@
+<h3><%= "検索結果 #{@sum_rooms}件" %></h3>
+
+<div class="search-page-container">
+    <%= search_form_for @q, url: rooms_search_path do |f| %>
+    <%= f.search_field :address_cont, placeholder: 'エリアを入力' %>
+    <%= f.submit '検索', class:"btn btn-outline-primary"%>
+    <% end %>
+    <%= search_form_for @q, url: rooms_search_path do |f| %>
+    <%= f.search_field :name_or_intro_cont, placeholder: 'キーワードを入力' %>
+    <%= f.submit '検索', class:'btn btn-outline-primary' %>
+    <% end %>
+</div>
+<div class="rooms-index-container">
+    
+        <% @results.each do |room| %>
+        <ul class="rooms-index-ul">
+            <li><%= render partial: "shared/image_common", locals: { obj: room, width: '80%'} %></li>
+            <%= render partial: "shared/room_common", locals: { obj: room} %>
+            <%= link_to '詳細', room_path(room), class: 'btn btn-primary' %>
+        </ul>
+        <% end %>
+    
+</div>

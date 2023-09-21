@@ -1,0 +1,24 @@
+<div>
+    <h3>予約済み一覧</h3>
+    <table>
+        <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>合計料金</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
+            <th>予約確定日時</th>
+        </tr>
+
+        <% @reservations.each do |r| %>
+            <tr>
+                <td><%= render partial: "shared/image_common", locals: {obj: r.room, width: '150px'} %></td>
+                <%= render partial: "shared/room_index_common", locals: { obj: r.room, payment: r.payment} %>
+                <td><%= r.checkin %></td>
+                <td><%= r.checkout %></td>
+                <td><%= r.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            </tr>
+            <% end %>
+    </table>
+</div>

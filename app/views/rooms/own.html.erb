@@ -1,0 +1,19 @@
+<div>
+    <table>
+        <tr>
+            <th>施設画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+        </tr>
+        <% @rooms.each do |room| %>
+        <tr>
+            <td><%= render partial: 'shared/image_common', locals: { obj: room, width: '150px'} %></td>
+            <%= render partial: 'shared/room_index_common', locals: { obj: room, payment: room.fee} %>
+            <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
